@@ -7,7 +7,7 @@ DipPAV is a long-reads based, haplotyp-specific structural variant detection too
 ## Installation
 
 1. clone the github repository to your local machine
-git clone
+    ```git clone```
 
 2. enter the donwloaded folder
 cd DipPAV
