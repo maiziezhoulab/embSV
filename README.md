@@ -7,10 +7,15 @@ DipPAV is a long-reads based, haplotyp-specific structural variant detection too
 ## Installation
 
 1. clone the github repository to your local machine
-    ```git clone https://github.com/maiziezhoulab/DipPAV.git```
+ 
+```
+git clone https://github.com/maiziezhoulab/DipPAV.git
+```
 
 2. enter the donwloaded folder
-```cd DipPAV```
+```
+cd DipPAV
+```
 
 4. create 2 conda environment
 
@@ -63,7 +68,9 @@ dim  200  # kmer representation dimension (default = 200)
 
 DipPAV contains 5 step to generate contigs and call variants. After you edit the input.config, you can run 
 
-```python3 jobs_generator.py```
+```
+python3 jobs_generator.py
+```
 
 Then, you will see DipPAV_step1.sh, DipPAV_step2.sh, DipPAV_step3.sh, DipPAV_step4.sh and DipPAV_step5.sh under the main folder.
 
