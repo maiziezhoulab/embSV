@@ -32,7 +32,7 @@ You are all set.
 
 ### Input data
 
-You need to provide a reference fasta file, a chormosome-specific BAM file along with its index file.
+You need to provide a reference fasta file, a chormosome-specific BAM file along with its index file (recommended aligner: NGMLR).
 
 ### Edit input.config
 
@@ -63,7 +63,7 @@ dim  200  # kmer representation dimension (default = 200)
 
 DipPAV contains 5 step to generate contigs and call variants. After you edit the input.config, you can run 
 
-python3 jobs_generator.py
+```python3 jobs_generator.py```
 
 Then, you will see DipPAV_step1.sh, DipPAV_step2.sh, DipPAV_step3.sh, DipPAV_step4.sh and DipPAV_step5.sh under the main folder.
 
