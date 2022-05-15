@@ -44,15 +44,15 @@ Here is an example of how you can edit this file.
 <p>
 
 
-    ```ruby
-input_bam  ./NA24385_aligned_by_ngmlr_chr21.bam  #specify the bam file path
-file_prefix  NA24385_aligned_by_ngmlr_chr21 #file prefix you prefer for output
-ref_genome  /data/maiziezhou_lab/Softwares/refdata-hg19-2.1.0/fasta/genome.fa
-chr_num  21  # chromosome number (excluding X,Y)
-output_dir  ./DipPAV_output/ # specify your prefered output folder
-num_bucket  20000000  # number of bucket in LSH step (default = 20000000)
-kmer_size 15 # kmer size in LSH step and model training (default = 15)
-dim  200  # kmer representation dimension (default = 200)
+    ```
+    input_bam  ./NA24385_aligned_by_ngmlr_chr21.bam  #specify the bam file path
+    file_prefix  NA24385_aligned_by_ngmlr_chr21 #file prefix you prefer for output
+    ref_genome  /data/maiziezhou_lab/Softwares/refdata-hg19-2.1.0/fasta/genome.fa
+    chr_num  21  # chromosome number (excluding X,Y)
+    output_dir  ./DipPAV_output/ # specify your prefered output folder
+    num_bucket  20000000  # number of bucket in LSH step (default = 20000000)
+    kmer_size 15 # kmer size in LSH step and model training (default = 15)
+    dim  200  # kmer representation dimension (default = 200)
     ```
 
 </p>
@@ -71,12 +71,12 @@ Then, you will see DipPAV_step1.sh, DipPAV_step2.sh, DipPAV_step3.sh, DipPAV_ste
 
 You can run the step by 
 
-    ```bash
-bash DipPAV_step1.sh
-bash DipPAV_step2.sh
-bash DipPAV_step3.sh
-bash DipPAV_step4.sh
-bash DipPAV_step5.sh
+    ```
+    bash DipPAV_step1.sh
+    bash DipPAV_step2.sh
+    bash DipPAV_step3.sh
+    bash DipPAV_step4.sh
+    bash DipPAV_step5.sh
     ```
 
 
