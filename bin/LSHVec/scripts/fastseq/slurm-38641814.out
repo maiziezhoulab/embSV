@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "hashSeq.py", line 9, in <module>
+    import csparc as kg 
+ModuleNotFoundError: No module named 'csparc'

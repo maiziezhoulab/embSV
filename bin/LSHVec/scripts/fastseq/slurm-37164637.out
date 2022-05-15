@@ -1,0 +1,27 @@
+
+CommandNotFoundError: Your shell has not been properly configured to use 'conda activate'.
+To initialize your shell, run
+
+    $ conda init <SHELL_NAME>
+
+Currently supported shells are:
+  - bash
+  - fish
+  - tcsh
+  - xonsh
+  - zsh
+  - powershell
+
+See 'conda init --help' for more information and options.
+
+IMPORTANT: You may need to close and restart your shell after running 'conda init'.
+
+
+2022-01-19 10:52:57,262 - hashSeq - INFO - start converting...
+2022-01-19 10:52:57,263 - hashSeq - INFO - parameters: {'f': <function convert.<locals>.f at 0x2b285d43ad90>, 'lsh_file': '', 'create_lsh_only': False, 'batch_size': 100000, 'hash_size': 22, 'out_file': '../../../modelling/PS94_hp1_revised.hash', 'in_file': '../../../data/phased_reads/PS94_hp1.seq', 'n_thread': 47, 'kmer_size': 20, 'hash_fun': 'lsh', 'bucket': 20000000}
+2022-01-19 10:52:57,263 - hashSeq - INFO - creating hash ...
+  0%|          | 0/880 [00:00<?, ?it/s]  5%|▌         | 47/880 [00:03<00:53, 15.44it/s] 11%|█         | 94/880 [00:06<00:50, 15.50it/s] 16%|█▌        | 141/880 [00:06<00:37, 19.96it/s] 21%|██▏       | 188/880 [00:07<00:26, 26.58it/s] 27%|██▋       | 235/880 [00:07<00:18, 34.65it/s] 32%|███▏      | 282/880 [00:08<00:13, 43.18it/s] 37%|███▋      | 329/880 [00:08<00:10, 51.46it/s] 43%|████▎     | 376/880 [00:08<00:08, 62.73it/s] 48%|████▊     | 423/880 [00:09<00:06, 74.99it/s] 53%|█████▎    | 470/880 [00:09<00:05, 75.29it/s] 59%|█████▉    | 517/880 [00:10<00:04, 86.54it/s] 64%|██████▍   | 564/880 [00:10<00:03, 104.44it/s] 69%|██████▉   | 611/880 [00:10<00:02, 123.03it/s] 75%|███████▍  | 658/880 [00:10<00:01, 147.28it/s] 85%|████████▌ | 752/880 [00:11<00:00, 185.44it/s] 91%|█████████ | 799/880 [00:11<00:00, 226.41it/s]100%|██████████| 880/880 [00:11<00:00, 78.59it/s] 
+2022-01-19 10:53:09,117 - hashSeq - INFO - finish creating hash ...
+  0%|          | 0/204 [00:00<?, ?it/s] 46%|████▌     | 94/204 [00:02<00:02, 44.84it/s] 69%|██████▉   | 141/204 [00:12<00:05, 12.14it/s] 92%|█████████▏| 188/204 [00:21<00:01,  8.93it/s]100%|██████████| 204/204 [00:21<00:00,  9.68it/s]
+2022-01-19 10:53:49,595 - hashSeq - INFO - written 204 lines
+2022-01-19 10:53:49,597 - hashSeq - INFO - finish converting...

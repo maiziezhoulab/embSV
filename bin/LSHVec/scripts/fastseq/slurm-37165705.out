@@ -1,0 +1,25 @@
+
+CommandNotFoundError: Your shell has not been properly configured to use 'conda activate'.
+To initialize your shell, run
+
+    $ conda init <SHELL_NAME>
+
+Currently supported shells are:
+  - bash
+  - fish
+  - tcsh
+  - xonsh
+  - zsh
+  - powershell
+
+See 'conda init --help' for more information and options.
+
+IMPORTANT: You may need to close and restart your shell after running 'conda init'.
+
+
+Traceback (most recent call last):
+  File "hashSeq.py", line 157, in <module>
+    main(sys.argv[1:])
+  File "hashSeq.py", line 152, in main
+    assert os.path.exists(lsh_file), lsh_file + " does not exists"
+AssertionError: ../../../modelling/PS94_hp1.lsh does not exists

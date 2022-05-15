@@ -1,0 +1,28 @@
+2022-01-19 13:26:59,143 - hashSeq - INFO - start converting...
+2022-01-19 13:26:59,143 - hashSeq - INFO - parameters: {'f': <function convert.<locals>.f at 0x2b5a4fda5d90>, 'lsh_file': '', 'create_lsh_only': False, 'batch_size': 100000, 'hash_size': 22, 'out_file': '../../../modelling/PS94_96.hash', 'in_file': '../../../data/unphased_reads/PS94_96.seq', 'n_thread': 23, 'kmer_size': 20, 'hash_fun': 'lsh', 'bucket': 20000000}
+2022-01-19 13:26:59,143 - hashSeq - INFO - creating hash ...
+  0%|          | 0/880 [00:00<?, ?it/s]  3%|▎         | 23/880 [00:01<00:44, 19.14it/s]  5%|▌         | 46/880 [00:02<00:45, 18.46it/s]  8%|▊         | 69/880 [00:02<00:33, 23.95it/s] 10%|█         | 92/880 [00:03<00:26, 29.69it/s] 13%|█▎        | 115/880 [00:03<00:20, 36.57it/s] 16%|█▌        | 138/880 [00:03<00:18, 40.57it/s] 18%|█▊        | 161/880 [00:04<00:14, 48.40it/s] 29%|██▉       | 253/880 [00:04<00:09, 67.46it/s] 44%|████▍     | 391/880 [00:04<00:05, 93.97it/s] 97%|█████████▋| 851/880 [00:04<00:00, 132.53it/s]100%|██████████| 880/880 [00:04<00:00, 193.87it/s]
+2022-01-19 13:27:06,821 - hashSeq - INFO - finish creating hash ...
+  0%|          | 0/185 [00:00<?, ?it/s] 25%|██▍       | 46/185 [00:00<00:01, 138.33it/s]Traceback (most recent call last):
+  File "hashSeq.py", line 157, in <module>
+    main(sys.argv[1:])
+  File "hashSeq.py", line 153, in main
+    convert(in_file, out_file, hash_fun, kmer_size, n_thread=n_thread, hash_size=hash_size, batch_size=batch_size, bucket=bucket, create_lsh_only=create_lsh_only, lsh_file=lsh_file)
+  File "hashSeq.py", line 84, in convert
+    f(lines, fout, rp)
+  File "hashSeq.py", line 49, in f
+    sequences = Parallel(n_jobs=n_thread)(delayed(gen_for_line_lsh)(line, kmer_size, rp, bucket) for line in tqdm(lines))
+  File "/home/datarpa/.conda/envs/fastText/lib/python3.6/site-packages/joblib/parallel.py", line 1061, in __call__
+    self.retrieve()
+  File "/home/datarpa/.conda/envs/fastText/lib/python3.6/site-packages/joblib/parallel.py", line 940, in retrieve
+    self._output.extend(job.get(timeout=self.timeout))
+  File "/home/datarpa/.conda/envs/fastText/lib/python3.6/site-packages/joblib/_parallel_backends.py", line 542, in wrap_future_result
+    return future.result(timeout=timeout)
+  File "/home/datarpa/.conda/envs/fastText/lib/python3.6/concurrent/futures/_base.py", line 432, in result
+    return self.__get_result()
+  File "/home/datarpa/.conda/envs/fastText/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+The exit codes of the workers are {SIGILL(-4)}
+ 49%|████▉     | 91/185 [00:01<00:01, 50.58it/s] 
