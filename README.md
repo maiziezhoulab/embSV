@@ -7,14 +7,14 @@ DipPAV is a long-reads based, haplotyp-specific structural variant detection too
 ## Installation
 
 1. clone the github repository to your local machine
-    ```git clone```
+    ```git clone https://github.com/maiziezhoulab/DipPAV.git```
 
 2. enter the donwloaded folder
-cd DipPAV
+```cd DipPAV```
 
 4. create 2 conda environment
 
-
+```
 conda create -n "DipPAV" python=3.9.12
 conda activate DipPAV
 conda install minimap2 samtools jellyfish fasttext svim-asm truvari multicore-tsne longshot numpy scikit-learn joblib tqdm pandas cython xlwt
@@ -25,7 +25,7 @@ conda activate LSHvec
 conda install minimap2 fasttext svim-asm truvari multicore-tsne longshot numpy scikit-learn joblib tqdm pandas cython
 pip install bin/LSHvec/pysparc-0.1-cp37-cp37m-linux_x86_64.whl
 conda deactivate
-
+```
 You are all set.
 
 ## Run DipPAV
@@ -40,23 +40,21 @@ After you clone the github repository, you can see the input.config in the first
 
 Here is an example of how you can edit this file.
 
-<details><summary>Input.config example</summary>
-<p>
 
 
-    ```
-    input_bam  ./NA24385_aligned_by_ngmlr_chr21.bam  #specify the bam file path
-    file_prefix  NA24385_aligned_by_ngmlr_chr21 #file prefix you prefer for output
-    ref_genome  /data/maiziezhou_lab/Softwares/refdata-hg19-2.1.0/fasta/genome.fa
-    chr_num  21  # chromosome number (excluding X,Y)
-    output_dir  ./DipPAV_output/ # specify your prefered output folder
-    num_bucket  20000000  # number of bucket in LSH step (default = 20000000)
-    kmer_size 15 # kmer size in LSH step and model training (default = 15)
-    dim  200  # kmer representation dimension (default = 200)
-    ```
 
-</p>
-</details>
+```
+input_bam  ./NA24385_aligned_by_ngmlr_chr21.bam  #specify the bam file path
+file_prefix  NA24385_aligned_by_ngmlr_chr21 #file prefix you prefer for output
+ref_genome  /data/maiziezhou_lab/Softwares/refdata-hg19-2.1.0/fasta/genome.fa
+chr_num  21  # chromosome number (excluding X,Y)
+output_dir  ./DipPAV_output/ # specify your prefered output folder
+num_bucket  20000000  # number of bucket in LSH step (default = 20000000)
+kmer_size 15 # kmer size in LSH step and model training (default = 15)
+dim  200  # kmer representation dimension (default = 200)
+```
+
+
 
 
 
@@ -71,13 +69,13 @@ Then, you will see DipPAV_step1.sh, DipPAV_step2.sh, DipPAV_step3.sh, DipPAV_ste
 
 You can run the step by 
 
-    ```
-    bash DipPAV_step1.sh
-    bash DipPAV_step2.sh
-    bash DipPAV_step3.sh
-    bash DipPAV_step4.sh
-    bash DipPAV_step5.sh
-    ```
+```
+bash DipPAV_step1.sh
+bash DipPAV_step2.sh
+bash DipPAV_step3.sh
+bash DipPAV_step4.sh
+bash DipPAV_step5.sh
+```
 
 
 ### Check the result
