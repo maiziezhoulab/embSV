@@ -54,9 +54,13 @@ conda deactivate
 
 #### *Required parameters
 **--input_bam:** "NA24385_aligned_by_ngmlr_chr21.bam" is a bam file generated from long reads aligned by aligner like NGMLR. How to get the bam file, you can also check <a href="xxxxxxxx">here</a>.
+
 **--file_prefix:** file name prefix used to create intermediate file name. You can set it according to your preference.
+
 **--chr_num:** chromosome number (1-22). 
+
 **--output_dir:** output folder. Specify output folder to store the intermidiate and file result(should keep same folder from step1-3).
+
 **--ref_genome:** "./refdata-hg19-2.1.0/fasta/genome.fa" is the reference genome file that the long reads file is aligned to. How to get the fasta file, you can also check <a href="xxxxxxxx">here</a>.
 
 ### Step 2
@@ -73,12 +77,15 @@ conda deactivate
 ```
 #### *Required parameters
 **--file_prefix:** file name prefix used to create intermediate file name. You can set it according to your preference.
+
 **--output_dir:** output folder. Specify output folder to store the intermidiate and file result(should keep same folder from step1-3).
 
 #### *Optional parameters
 
 **--num_bucket:** number of bucket to store the kmers in LSH step (5000-20000000). Default = 20000000.
+
 **--kmer_size:** size of kmer used for kmer embedding (10-45). Default = 15.
+
 **--dim:** dimension of features to represent kmers (50-400). Default = 200.
 
 
@@ -94,7 +101,9 @@ conda deactivate
 ```
 #### *Required parameters
 **--chr_num:** chromosome number (1-22). 
+
 **--output_dir:** output folder. Specify output folder to store the intermidiate and file result(should keep same folder from step1-3).
+
 **--ref_genome:** "./refdata-hg19-2.1.0/fasta/genome.fa" is the reference genome file that the long reads file is aligned to. How to get the fasta file, you can also check <a href="xxxxxxxx">here</a>.
 
 
