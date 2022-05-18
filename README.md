@@ -39,53 +39,66 @@ You are all set.
 
 You need to provide a reference fasta file, a chormosome-specific BAM file along with its index file (recommended aligner: NGMLR).
 
-### Edit input.config
-
-After you clone the github repository, you can see the input.config in the first level of DipPAV folder. You need to edit it, providing the BAM file path, file prefix, reference path, chromosome number etc.
-
-Here is an example of how you can edit this file.
-
-
-
+### Step 1
 
 ```
-input_bam  ./NA24385_aligned_by_ngmlr_chr21.bam  #specify the bam file path
-file_prefix  NA24385_aligned_by_ngmlr_chr21 #file prefix you prefer for output
-ref_genome  /data/maiziezhou_lab/Softwares/refdata-hg19-2.1.0/fasta/genome.fa
-chr_num  21  # chromosome number (excluding X,Y)
-output_dir  ./DipPAV_output/ # specify your prefered output folder
-num_bucket  20000000  # number of bucket in LSH step (default = 20000000)
-kmer_size 15 # kmer size in LSH step and model training (default = 15)
-dim  200  # kmer representation dimension (default = 200)
+conda activate DipPAV
+python3 DipPAV_step1.py \
+--input_bam ./NA24385_aligned_by_ngmlr_chr21.bam \
+--file_prefix NA24385_aligned_by_ngmlr_chr21 \
+--chr_num 21 \
+--output_dir DipPAV_chr21_result/ \
+--ref_genome ./refdata-hg19-2.1.0/fasta/genome.fa
+conda deactivate
 ```
 
+#### *Required parameters
+**--input_bam:** "NA24385_aligned_by_ngmlr_chr21.bam" is a bam file generated from long reads aligned by aligner like NGMLR. How to get the bam file, you can also check <a href="xxxxxxxx">here</a>.
+**--file_prefix:** file name prefix used to create intermediate file name. You can set it according to your preference.
+**--chr_num:** chromosome number (1-22). 
+**--output_dir:** output folder. Specify output folder to store the intermidiate and file result(should keep same folder from step1-3).
+**--ref_genome:** "./refdata-hg19-2.1.0/fasta/genome.fa" is the reference genome file that the long reads file is aligned to. How to get the fasta file, you can also check <a href="xxxxxxxx">here</a>.
 
-
-
-
-
-### Generate step-spefic bash files
-
-DipPAV contains 5 step to generate contigs and call variants. After you edit the input.config, you can run 
-
-```
-python3 jobs_generator.py
-```
-
-Then, you will see DipPAV_step1.sh, DipPAV_step2.sh, DipPAV_step3.sh, DipPAV_step4.sh and DipPAV_step5.sh under the main folder.
-
-You can run the step by 
+### Step 2
 
 ```
-bash DipPAV_step1.sh
-bash DipPAV_step2.sh
-bash DipPAV_step3.sh
-bash DipPAV_step4.sh
-bash DipPAV_step5.sh
+conda activate LSHvec
+python3 DipPAV_step2.py \
+--file_prefix NA24385_aligned_by_ngmlr_chr21 \
+--output_dir DipPAV_chr21_result/ \
+--num_bucket 20000000 \
+--kmer_size 15 \
+--dim 200 
+conda deactivate
 ```
+#### *Required parameters
+**--file_prefix:** file name prefix used to create intermediate file name. You can set it according to your preference.
+**--output_dir:** output folder. Specify output folder to store the intermidiate and file result(should keep same folder from step1-3).
+
+#### *Optional parameters
+
+**--num_bucket:** number of bucket to store the kmers in LSH step (5000-20000000). Default = 20000000.
+**--kmer_size:** size of kmer used for kmer embedding (10-45). Default = 15.
+**--dim:** dimension of features to represent kmers (50-400). Default = 200.
 
 
-### Check the result
+### Step 3
+
+```
+conda activate DippAV
+python3 DipPAV_step3.py \
+--chr_num 21 \
+--output_dir DipPAV_chr21_result/ \
+--ref_genome ./refdata-hg19-2.1.0/fasta/genome.fa
+conda deactivate
+```
+#### *Required parameters
+**--chr_num:** chromosome number (1-22). 
+**--output_dir:** output folder. Specify output folder to store the intermidiate and file result(should keep same folder from step1-3).
+**--ref_genome:** "./refdata-hg19-2.1.0/fasta/genome.fa" is the reference genome file that the long reads file is aligned to. How to get the fasta file, you can also check <a href="xxxxxxxx">here</a>.
+
+
+## Final Output:
 
 When all steps finish running, you can go to the output folder you specified in "input.config". Under the output folder, you can see phasing_result, word_embedding_result, clustering_result and assembly_result. The contigs file is under "assembly_result/final_contigs/", and the variants file is "assembly_result/final_contigs/variant_call/DipPAV_variants.vcf".
 
