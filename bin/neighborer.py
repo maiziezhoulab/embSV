@@ -8,12 +8,12 @@ from MulticoreTSNE import MulticoreTSNE as TSNE
 import matplotlib.pyplot as plt
 import sys
 
-dir = "/data/maiziezhou_lab/Parth/long_reads_project/"
+# dir = "/data/maiziezhou_lab/Parth/long_reads_project/"
 # filenum = 5
 # kmerlength = 120
 # unphasedlines = 185
 # alllines = 1797
-blocks = [[0, 204], [204, 436], [436, 1284], [1284, 1612], [1612, 1797]]
+# blocks = [[0, 204], [204, 436], [436, 1284], [1284, 1612], [1612, 1797]]
 
 def extractBlocks(input):
 	s = input.split(",")
@@ -27,9 +27,9 @@ def findBlock(num):
 	lst = [(num < x[1] and num >= x[0]) for x in blocks]
 	return lst.index(True)
 
-embedfilepath = dir + "pipeline/embeds.emb"
-logfilepath = dir + "pipeline/nearestNeighbors.txt"
-figurepath = dir + "pipeline/TSNECluster.pdf"
+# embedfilepath = dir + "pipeline/embeds.emb"
+# logfilepath = dir + "pipeline/nearestNeighbors.txt"
+# figurepath = dir + "pipeline/TSNECluster.pdf"
 #Read in alternative
 if(len(sys.argv) > 1):
 	# dir = sys.argv[1]

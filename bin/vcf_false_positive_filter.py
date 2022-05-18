@@ -123,7 +123,7 @@ for i in range(1,len(merged_sv_list)):
 		merge_check_result = check_merge_or_not(new_sv[j],merged_sv_list[i])
 		if merge_check_result[0]=='merge':
 			merge_flag = 1
-			print("merge")
+			# print("merge")
 			m+=1
 			new_sv[j]=merge_check_result[1]
 		elif merge_check_result[0]=='out of range':
@@ -133,7 +133,7 @@ for i in range(1,len(merged_sv_list)):
 
 
 ## write down new vcf
-print("merge: ",m)
+# print("merge: ",m)
 with open(output_path,'w') as f:
 	f.writelines(header+new_sv)
 
