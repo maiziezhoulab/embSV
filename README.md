@@ -1,6 +1,6 @@
 # DipPAV
 
-DipPAV is a long-reads based, haplotype-resolved assembly-based structural variant detection tool. It employs the power of natural language processing to assist partitioning reads for halotype-specific assembly.
+DipPAV is a long-reads based, haplotype-resolved assembly-based structural variant detection tool. It employs the power of natural language processing to assist partitioning reads for haplotype-specific assembly.
 
 
 
