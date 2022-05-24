@@ -79,7 +79,7 @@ for read in uncover_dict:
 	asign_list = []
 
 	for pb in asign_pbs:
-		asign_info = [int(pb), pb_dist_dict[pb],read_start,read_end,pb_start,pb_end]
+		asign_info = [int(pb), pb_dist_dict[pb],read_start,read_end,pb_dict[pb][0],pb_dict[pb][1]]
 		asign_list.append(asign_info)
 
 	read_asign_dict[read]=asign_list
