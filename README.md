@@ -27,7 +27,7 @@ conda deactivate
 
 conda create -n "LSHvec" python=3.7
 conda activate LSHvec
-conda install minimap2 fasttext svim-asm truvari multicore-tsne longshot numpy scikit-learn joblib tqdm pandas cython
+conda install minimap2 fasttext svim-asm truvari multicore-tsne longshot numpy scikit-learn joblib tqdm pandas cython pysam
 pip install bin/LSHvec/pysparc-0.1-cp37-cp37m-linux_x86_64.whl
 conda deactivate
 ```
