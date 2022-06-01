@@ -33,8 +33,9 @@ with open(input_path, "rb") as f:
     dc_pb_reads = pickle.load(f)
 
 # dc_pb_reads = pickle.load(open(input_path,'rb'))
+os.system("rm -r "+output_dir)
+os.system("mkdir -p "+output_dir)
 
-os.system("mkdir "+output_dir)
 
 
 # os.system("rm "+input_dir+'/progress.log')
