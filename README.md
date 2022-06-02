@@ -17,7 +17,7 @@ git clone https://github.com/maiziezhoulab/DipPAV.git
 cd DipPAV
 ```
 
-4. create 2 conda environment
+3. create 2 conda environment
 
 ```
 conda create -n "DipPAV" python=3.9.12
