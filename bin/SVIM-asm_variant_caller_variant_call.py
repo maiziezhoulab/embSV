@@ -35,6 +35,6 @@ Popen(cmd,shell=True).wait()
 
 ## remove false positive
 
-cmd = "python3 %s/vcf_false_positive_filter.py -i %s/variants.vcf -o %s/DipPAV_variants.vcf"%(code_dir,output_dir,output_dir)
+cmd = "python3 %s/vcf_false_positive_filter.py -i %s/variants.vcf -o %s/embSV_variants.vcf"%(code_dir,output_dir,output_dir)
 Popen(cmd,shell=True).wait()
 
