@@ -1,6 +1,6 @@
-# DipPAV
+# embSV
 
-DipPAV is a long-reads based, haplotype-resolved assembly-based structural variant detection tool. It employs the power of natural language processing to assist partitioning reads for haplotype-specific assembly.
+embSV is a long-reads based, haplotype-resolved assembly-based structural variant detection tool. It employs the power of natural language processing to assist partitioning reads for haplotype-specific assembly.
 
 
 
@@ -9,19 +9,19 @@ DipPAV is a long-reads based, haplotype-resolved assembly-based structural varia
 1. clone the github repository to your local machine
  
 ```
-git clone https://github.com/maiziezhoulab/DipPAV.git
+git clone https://github.com/maiziezhoulab/embSV.git
 ```
 
 2. enter the donwloaded folder
 ```
-cd DipPAV
+cd embSV
 ```
 
 3. create 2 conda environment
 
 ```
-conda create -n "DipPAV" python=3.9.12
-conda activate DipPAV
+conda create -n "embSV" python=3.9.12
+conda activate embSV
 conda install minimap2 samtools jellyfish fasttext svim-asm truvari multicore-tsne longshot numpy scikit-learn joblib tqdm pandas cython xlwt
 conda deactivate
 
@@ -33,7 +33,7 @@ conda deactivate
 ```
 You are all set.
 
-## Run DipPAV
+## Run embSV
 
 ### Input data
 
@@ -42,12 +42,12 @@ You need to provide a reference fasta file, a chormosome-specific BAM file along
 ### Step 1
 
 ```
-conda activate DipPAV
-python3 DipPAV_step1.py \
+conda activate embSV
+python3 embSV_step1.py \
 --input_bam ./NA24385_aligned_by_ngmlr_chr21.bam \
 --file_prefix NA24385_aligned_by_ngmlr_chr21 \
 --chr_num 21 \
---output_dir DipPAV_chr21_result/ \
+--output_dir embSV_chr21_result/ \
 --ref_genome ./refdata-hg19-2.1.0/fasta/genome.fa
 conda deactivate
 ```
@@ -67,9 +67,9 @@ conda deactivate
 
 ```
 conda activate LSHvec
-python3 DipPAV_step2.py \
+python3 embSV_step2.py \
 --file_prefix NA24385_aligned_by_ngmlr_chr21 \
---output_dir DipPAV_chr21_result/ \
+--output_dir embSV_chr21_result/ \
 --num_bucket 20000000 \
 --kmer_size 15 \
 --dim 200 
@@ -92,10 +92,10 @@ conda deactivate
 ### Step 3
 
 ```
-conda activate DippAV
-python3 DipPAV_step3.py \
+conda activate embSV
+python3 embSV_step3.py \
 --chr_num 21 \
---output_dir DipPAV_chr21_result/ \
+--output_dir embSV_chr21_result/ \
 --ref_genome ./refdata-hg19-2.1.0/fasta/genome.fa
 conda deactivate
 ```
@@ -109,7 +109,7 @@ conda deactivate
 
 ## Final Output:
 
-When all steps finish running, you can go to the output folder you specified in "input.config". Under the output folder, you can see phasing_result, word_embedding_result, clustering_result and assembly_result. The contigs file is under "assembly_result/final_contigs/", and the variants file is "assembly_result/final_contigs/variant_call/DipPAV_variants.vcf".
+When all steps finish running, you can go to the output folder you specified in "input.config". Under the output folder, you can see phasing_result, word_embedding_result, clustering_result and assembly_result. The contigs file is under "assembly_result/final_contigs/", and the variants file is "assembly_result/final_contigs/variant_call/embSV_variants.vcf".
 
 
 
